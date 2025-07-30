@@ -1,4 +1,3 @@
-// Simple approach - just create tokens without metadata
 import {
     Connection,
     Keypair,
@@ -18,7 +17,9 @@ import {
 import * as fs from "fs";
 import * as os from "os";
 
-// --- SETUP ---
+/**
+ * Setup
+ */
 const connection = new Connection("https://api.devnet.solana.com", "confirmed");
 const payer = Keypair.fromSecretKey(
     Uint8Array.from(JSON.parse(fs.readFileSync(os.homedir() + '/.config/solana/id.json', 'utf8')))
@@ -36,7 +37,9 @@ async function main() {
     console.log("Fungible Mint:", fungibleMintKp.publicKey.toBase58());
     console.log("NFT Mint:", nftMintKp.publicKey.toBase58());
 
-    // --- CREATE FUNGIBLE TOKEN ---
+    /**
+     * Create Fungible Token
+     */
     console.log("\n Creating Fungible Token...");
 
     const payerATA = getAssociatedTokenAddressSync(fungibleMintKp.publicKey, payer.publicKey);
@@ -95,7 +98,9 @@ async function main() {
     );
     console.log("Fungible Token created:", ftSignature);
 
-    // --- CREATE NFT ---
+    /**
+     * Create NFT
+     */
     console.log("\n Creating NFT...");
 
     const nftATA = getAssociatedTokenAddressSync(nftMintKp.publicKey, payer.publicKey);
@@ -139,7 +144,9 @@ async function main() {
     );
     console.log("NFT created:", nftSignature);
 
-    // --- RESULTS ---
+    /**
+     * Results
+     */
     console.log("\n SUCCESS! All tokens created!");
 
     console.log("\n THE SIGNATURES:");
