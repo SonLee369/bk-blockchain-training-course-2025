@@ -1,0 +1,16 @@
+{
+    "name": "My Solana NFT",
+    "symbol": "MSN",
+    "description": "A unique NFT created for the BK Blockchain course.",
+    "image": "https://arweave.net/path-to-your-nft-image.png",
+    "attributes": [
+        {
+            "trait_type": "Level",
+            "value": "10"
+        },
+        {
+            "trait_type": "Rarity",
+            "value": "Epic"
+        }
+    ]
+}

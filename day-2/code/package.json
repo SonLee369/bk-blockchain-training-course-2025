@@ -9,16 +9,18 @@
     "execute": "npx ts-node -r tsconfig-paths/register"
   },
   "dependencies": {
-    "@metaplex-foundation/mpl-token-metadata": "3.1.0",
+    "@metaplex-foundation/js": "^0.20.1",
+    "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
     "@metaplex-foundation/umi": "^1.2.0",
     "@metaplex-foundation/umi-bundle-defaults": "^1.2.0",
     "@metaplex-foundation/umi-uploader-irys": "^1.2.0",
     "@metaplex-foundation/umi-web3js-adapters": "^1.2.0",
     "@solana/spl-token": "^0.4.13",
-    "@solana/web3.js": "^1.73.3",
+    "@solana/web3.js": "^1.98.2",
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
+    "@types/node": "^24.1.0",
     "eslint": "^8.35.0",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.2",

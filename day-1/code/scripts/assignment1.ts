@@ -18,7 +18,7 @@ const connection = new Connection("https://api.devnet.solana.com", "confirmed");
 // ============================================================================
 // BULETPROOF FIX: Isolate the public key string to prevent copy/paste errors.
 // ============================================================================
-const destinationAddress = "63EEC9FfGyksm7PkVC6z8uAmqozbQcTzbkWJNsgqjkFs";
+const destinationAddress = "A1xFDCw87mHNC4yrBRa3f82T94F8YwqSgmAh4Kw5ZcDp";
 // Log the key to the console to visually inspect it for any strange characters.
 console.log("Attempting to use destination address:", destinationAddress);
 

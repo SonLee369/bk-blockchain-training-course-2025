@@ -1,0 +1,6 @@
+{
+    "name": "My Cool Token",
+    "symbol": "MCT",
+    "description": "A very cool token for the Solana course.",
+    "image": "https://arweave.net/path-to-your-fungible-token-image.png"
+}

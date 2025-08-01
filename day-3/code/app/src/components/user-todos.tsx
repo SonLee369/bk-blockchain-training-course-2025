@@ -8,17 +8,41 @@ import TodoProgram from "@/lib/todo-program";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useQuery } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
+import { useState } from "react";
 import TodoList from "./todo-list";
+// Remove incorrect imports and import the actual functions
+import addTodo, { toggleTodo } from "@/lib/todo-program";
 
 export default function UserTodos() {
   const { publicKey } = useWallet();
   const provider = useAnchorProvider();
+  const [isToggling, setIsToggling] = useState(false);
 
   const { data: profile, isLoading } = useQuery({
     queryKey: ["profile", publicKey?.toBase58()],
     enabled: !!publicKey,
     queryFn: () => new TodoProgram(provider).fetchProfile(),
   });
+  // Add this function inside the UserTodos component
+
+  const handleToggle = async (todoIdx: number) => {
+    const program = provider ? new TodoProgram(provider) : null;
+    if (!program) return;
+
+    setIsToggling(true);
+    try {
+      await toggleTodo(program.program, todoIdx);
+      // Refresh the to-do list to show the change
+      // await refetchTodos(); // Uncomment and implement refetchTodos if needed
+    } catch (error) {
+      console.error("Failed to toggle todo:", error);
+      alert("Failed to toggle todo. Please check the console.");
+    } finally {
+      setIsToggling(false);
+    }
+  };
+
+
 
   if (isLoading) {
     return (
